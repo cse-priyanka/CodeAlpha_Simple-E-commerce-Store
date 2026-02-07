@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>E-Commerce</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <h1>ShopEase</h1>
+  <button onclick="logout()">Logout</button>
+</header>
+
+<section class="filters">
+  <select id="categoryFilter">
+    <option value="all">All Categories</option>
+    <option value="Electronics">Electronics</option>
+    <option value="Accessories">Accessories</option>
+    <option value="Home">Home</option>
+  </select>
+
+  <input id="searchInput" placeholder="Search products">
+</section>
+
+<section id="productList" class="product-grid"></section>
+
+<section class="cart-section">
+  <h2>My Cart</h2>
+  <div id="cart"></div>
+  <h3 id="total">Total: ₹0</h3>
+  <button class="checkout-btn" onclick="placeOrder()">Checkout</button>
+</section>
+
+<script src="products.js"></script>
+</body>
+</html>
