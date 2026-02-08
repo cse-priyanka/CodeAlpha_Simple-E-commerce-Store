@@ -7,8 +7,10 @@ const User = require("./models/User");
 const Product = require("./models/Product");
 
 // ------------------ MongoDB Connection ------------------
+require("dotenv").config();
+
 mongoose
-  .connect("mongodb+srv://admin:Vallaba1122@ecommercebackend.z3kwlmk.mongodb.net/?appName=ecommercebackend")
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log("MongoDB error:", err));
 
@@ -84,7 +86,6 @@ app.post("/cart/:username/:productId", async (req, res) => {
     const product = await Product.findById(productId);
     if (!product) return res.status(404).json({ message: "Product not found" });
 
-    // check if product already in cart
     const cartItem = user.cart.find(
       item => item.product.toString() === productId
     );
@@ -107,13 +108,13 @@ app.post("/cart/:username/:productId", async (req, res) => {
 app.get("/cart/:username", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.params.username })
-      .populate("cart.product");   // 🔥 THIS IS THE KEY
+      .populate("cart.product");   
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    res.json(user.cart); // now full product objects
+    res.json(user.cart); 
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });
@@ -128,8 +129,7 @@ app.post("/order/:username", async (req, res) => {
 
     if (user.cart.length === 0) return res.status(400).json({ message: "Cart is empty" });
 
-    // Here you can add order processing logic
-    user.cart = []; // clear cart after order
+    user.cart = []; 
     await user.save();
 
     res.json({ message: "Order placed successfully" });
@@ -167,7 +167,6 @@ app.delete("/cart/:username/:productId", async (req, res) => {
 
     await user.save();
 
-    //  POPULATE BEFORE SENDING
     const updatedUser = await User.findOne({ username })
       .populate("cart.product");
 
