@@ -1,3 +1,5 @@
+require("dotenv").config({ path: "./.env" });
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -7,7 +9,6 @@ const User = require("./models/User");
 const Product = require("./models/Product");
 
 // ------------------ MongoDB Connection ------------------
-require("dotenv").config();
 
 mongoose
   .connect(process.env.MONGODB_URI)
