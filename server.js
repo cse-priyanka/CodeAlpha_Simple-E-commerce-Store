@@ -14,7 +14,11 @@ mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log("MongoDB error:", err));
-
+mongoose.connection.once("open", async () => {
+  console.log("DB NAME:", mongoose.connection.name);
+  const collections = await mongoose.connection.db.listCollections().toArray();
+  console.log("COLLECTIONS:", collections.map(c => c.name));
+});
 app.use(cors());
 app.use(express.json()); // to parse JSON body
 
@@ -184,3 +188,18 @@ app.listen(4000, () => {
   console.log("Server running on port 4000");
 });
 
+app.get("/debug-products-count", async (req, res) => {
+  const count = await Product.countDocuments();
+  res.json({ count });
+});
+
+app.post("/debug-add-product", async (req, res) => {
+  const p = new Product({
+    name: "Debug Product",
+    price: 999,
+    description: "Inserted from backend",
+    image: "debug.jpg"
+  });
+  await p.save();
+  res.json({ message: "Inserted", product: p });
+});
