@@ -1,127 +1,167 @@
-# 🛒 CodeAlpha – Simple E‑Commerce Store
+# 🛒 Simple E-commerce Store (Node.js)
 
-A simple full‑stack **E‑Commerce Web Application** built as part of the **CodeAlpha Internship Program**. This project demonstrates core concepts of backend development using **Node.js and Express**, along with a basic frontend built using **HTML, CSS, and JavaScript**.
-
----
-
-## 📌 Project Overview
-
-This application allows users to:
-
-* Register an account
-* Log in with credentials
-* View a list of products
-
-The project focuses on understanding **user authentication flow**, **server–client interaction**, and **project structuring** in a real‑world Node.js application.
+A full-stack **Simple E-commerce Store** built using **Node.js, Express.js, HTML, CSS, and JavaScript**. This project demonstrates core backend and frontend concepts such as user authentication, product listing, cart management, and **order processing**, making it suitable for internship and academic submissions.
 
 ---
 
-## 🛠️ Tech Stack
+## 📌 Project Features
 
-**Frontend**
+### 👤 User Management
+
+* User registration with username and password
+* User login authentication
+* Basic validation for inputs
+
+### 🛍️ Product Management
+
+* Display list of available products
+* Products shown dynamically on the products page
+* Client-side JavaScript handling product data
+
+### 🛒 Cart & Order Processing
+
+* Users can select products
+* Selected products are treated as an order
+* Order details are processed on the backend
+* Order flow simulates real-world e-commerce logic
+* Can be extended to include payment and order history
+
+### 🌐 Frontend Pages
+
+* **Register Page** – New user signup
+* **Login Page** – Existing user authentication
+* **Products Page** – Browse and select products
+
+---
+
+## 🧑‍💻 Tech Stack
+
+**Frontend:**
 
 * HTML5
 * CSS3
 * JavaScript
 
-**Backend**
+**Backend:**
 
 * Node.js
 * Express.js
 
-**Database**
-
-* MongoDB (via Mongoose)
-
-**Tools & Platform**
+**Tools:**
 
 * Git & GitHub
 * VS Code
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```
 CodeAlpha_Simple-E-commerce-Store/
 │
-├── models/              # Database models
-├── .vscode/             # VS Code settings
-├── .gitignore           # Ignored files (node_modules, env, etc.)
-├── package.json         # Project metadata & dependencies
-├── package-lock.json    # Dependency lock file
-├── server.js            # Main backend server file
+├── models/
+│   └── User.js
 │
-├── login.html           # Login page
-├── login.js             # Login logic
-├── register.html        # Registration page
-├── register.js          # Registration logic
-├── products.html        # Products page
-├── products.js          # Products logic
-├── style.css            # Styling file
-└── README.md            # Project documentation
+├── .gitignore
+├── README.md
+├── package.json
+├── package-lock.json
+├── server.js
+│
+├── login.html
+├── login.js
+├── register.html
+├── register.js
+├── products.html
+├── products.js
+├── style.css
 ```
 
 ---
 
-## 🚀 How to Run the Project Locally
+## ⚙️ How to Run the Project
 
-1️⃣ **Clone the repository**
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/cse-priyanka/CodeAlpha_Simple-E-commerce-Store.git
 ```
 
-2️⃣ **Navigate to the project directory**
+### 2️⃣ Navigate to Project Folder
 
 ```bash
 cd CodeAlpha_Simple-E-commerce-Store
 ```
 
-3️⃣ **Install dependencies**
+### 3️⃣ Install Dependencies
 
 ```bash
 npm install
 ```
 
-4️⃣ **Start the server**
+### 4️⃣ Start the Server
 
 ```bash
 node server.js
 ```
 
-5️⃣ **Open the application**
+### 5️⃣ Open in Browser
 
-* Open `login.html` or `register.html` in your browser
-* Backend runs on: `http://localhost:3000`
-
----
-
-## ✨ Features
-
-* User Registration
-* User Login
-* Product Listing
-* Clean project structure
-* Backend API using Express
+```
+http://localhost:3000
+```
 
 ---
 
-## ⚠️ Notes
+## 🔄 Application Workflow
 
-* `node_modules` is intentionally excluded using `.gitignore`
-* Ensure MongoDB is running before starting the server
-* This project is for learning and internship evaluation purposes
+1. User registers an account
+2. User logs in using credentials
+3. User views available products
+4. User selects products
+5. Selected products are processed as an order
+6. Backend handles order data logic
 
 ---
 
-## 👩‍💻 Author
+## 🚀 Future Enhancements
 
-**Priyanka**
-Computer Science Engineering Student
+* Payment gateway integration
+* Order history per user
+* Admin dashboard
+* Database integration (MongoDB)
+* JWT-based authentication
+
+---
+
+## 🎯 Learning Outcomes
+
+* Understanding Express.js backend flow
+* Handling frontend-backend communication
+* Implementing basic authentication
+* Simulating order processing in e-commerce
+* Using GitHub for version control
+
+---
+
+## 📌 Internship / Academic Use
+
+This project was developed as part of a **CodeAlpha Full Stack Development Internship** and is suitable for:
+
+* Internship evaluation
+* Mini-project submission
+* Backend + frontend practice
 
 ---
 
 ## 📜 License
 
-This project is created for educational purposes under the CodeAlpha Internship Program.
+This project is for educational purposes only.
+
+---
+
+### ✨ Author
+
+**Priyanka**
+
+GitHub: [https://github.com/cse-priyanka](https://github.com/cse-priyanka)
